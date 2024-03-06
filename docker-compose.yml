@@ -1,0 +1,51 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3307:3306"
+    networks:
+      - mybookstore-network
+    volumes:
+      - D:\mysqldata\data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: qyl728728
+      MYSQL_DATABASE: bookstore
+
+  mainservice:
+    image: my-spring-app:latest
+    ports:
+      - "8080:8080"
+    networks:
+      - mybookstore-network
+    depends_on:
+      - mysql
+      - mongodb
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/bookstore
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: qyl728728
+      SPRING_DATA_MONGODB_URI: mongodb://mongodb:27017/sample
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    networks:
+      - mybookstore-network
+
+networks:
+  mybookstore-network:
+    driver: bridge
+
+#  microservice:
+#    image: microservice-app:latest
+#    ports:
+#      - "11130:11130"
+#    networks:
+#      - mybookstore-network
+#    depends_on:
+#      - mysql
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/bookstore
+#      SPRING_DATASOURCE_USERNAME: root
+#      SPRING_DATASOURCE_PASSWORD: qyl728728
