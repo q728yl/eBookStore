@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    flex: 0 0 250px; /* 设置侧边栏宽度 */
+    background-color: white;
+    color: #fff;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}

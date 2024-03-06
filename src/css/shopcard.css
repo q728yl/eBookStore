@@ -1,0 +1,60 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    padding-left: 10px;
+}
+
+th,
+td {
+    text-align: center;
+    padding: 8px;
+}
+
+th {
+    text-align: center;
+    background-color: #bedade;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f4fafb;
+
+}
+
+img {
+    display: block;
+    margin: auto;
+
+
+}
+
+button {
+    background-color: #e75f52;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.shopcard-container{
+    width: 1500px
+}
+/* 在您的CSS文件中添加以下样式 */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* 半透明白色背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    z-index: 9999; /* 确保加载界面位于其他内容之上 */
+}
